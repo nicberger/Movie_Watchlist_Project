@@ -1,7 +1,7 @@
 document.addEventListener(
   "DOMContentLoaded",
   () => {
-    console.log("Project_Ironhack_Daiane_Nico JS imported successfully!");
+    console.log("Movie_Watchlist_Project JS imported successfully!");
   },
   false
 );
