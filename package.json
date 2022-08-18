@@ -1,5 +1,5 @@
 {
-  "name": "Movie_Watchlist_Project",
+  "name": "movie_watchlist_project",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -20,5 +20,18 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.19"
-  }
+  },
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nicberger/Movie_Watchlist_Project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nicberger/Movie_Watchlist_Project/issues"
+  },
+  "homepage": "https://github.com/nicberger/Movie_Watchlist_Project#readme",
+  "description": ""
 }
