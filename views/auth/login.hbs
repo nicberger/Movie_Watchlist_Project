@@ -1,12 +1,14 @@
 <form action="/auth/login" method="POST">
    <label> Username
-      <input type="text" name="username">
+      <input type="text" name="username" placeholder="Your Username">
    </label>
-   <label> Password
-      <input type="password" name="password">
-   </label>
+   <br />
 
-   <button type="submit">Submit</button>
+   <label> Password
+      <input type="password" name="password" placeholder="You Password">
+   </label>
+   <br />
+   <button type="submit">Log In</button>
 </form>
 
 {{#if errorMessage}}
