@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Results-N Movies</title>
+  <meta charset="utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="/favicon/favicon.ico" sizes="16x16" type="image/ico">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+  <link rel="stylesheet" href="/design/app.css">
+  <link rel="stylesheet" href="/bootstrap-4.5.2-dist/css/bootstrap.min.css">  
+</head>
+<body class="bg-dark">
+    <!-- Navbar begins here -->
+    
+<nav class="nav navbar-expand-sm bg-secondary navbar-secondary"> 
+            <span class="container">
+                <a class="navbar-brand" href="/">
+                    <img src="/images/n.png" alt="Logo" style="width: 40px;">
+                </a>                 
+                <span class="float-right pt-1">
+                  <span>
+                    <button type="button" class="btn btn-primary btn-sm" disabled>
+                      <span class="badge badge-light"><%=data['total_results']%></span> Results
+                    </button>
+                  </span>
+               
+                </span>    
+            </span>      
+        </nav>
+    
+
+    <!-- container begins here-->
+    <div class="container pt-3">
+      <div class="p-3 sticky-top">
+        <form action="/result" method="GET" class="justify-content-center d-flex">
+          <input type="search" name="search" class="form-control w-25 bg-dark text-white" placeholder="Search">
+          <input type="submit" class="btn btn-warning ml-2" value="Search">
+      </form>
+      </div>
+      <% data['results'].forEach( movie => {%>
+        <div class="card-header">
+          <div class="row pt-3">
+            <div class="col-md-3 col-sm-3 col-xs-3">
+              <div class="card-image pt-3">
+                <img src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/<%=movie['poster_path']%>" alt="Image" class="img-fluid">
+              </div>
+            </div>
+    
+            <div class="col-md-6 col-sm-6 col-xs-3">
+              <h4 class="text-warning p-1"><strong><%=movie['title']%></strong></h4>
+              <hr>
+              <p class="text-white"><%=movie['overview']%></p>         
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-3">
+              <p class="badge  badge-warning text-black">Popularity: <strong><%=movie['popularity']%></strong></p>
+              <hr>
+              <p class="badge  badge-warning text-black">Votes: <strong><%=movie['vote_average']%></strong></p>
+              <hr>
+              <div><span class="badge  badge-warning text-black">Release: <strong><%=movie['release_date']%></strong></span></div>
+            </div>
+          </div>
+        </div>
+      <%});%> 
+     
+      
+    </div>
+    <!-- container ended here -->
+ 
+<!-- scripts begin here -->
+    <script src="/bootstrap-4.5.2-dist/js/bootstrap.min.js"></script>
+</body>
+</html>
