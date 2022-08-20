@@ -1,8 +1,6 @@
 const app = require("express").Router();
 
 //TMDB 
-
-const API_KEY = "81a50cc70061c7a1a7e9bf42ab72a25d";
 const BASE_URL = "https://api.themoviedb.org/3";
 const API_URL = BASE_URL + '/discover/movie?sort_by=popularity.desc&'+API_KEY;
 const IMG_URL = 'https://image.tmdb.org/t/p/w500';
