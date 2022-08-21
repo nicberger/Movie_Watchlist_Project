@@ -1,8 +1,16 @@
     <header>
-        <form action="/result" method="GET"">
-            <input type="text" placeholder="Search for movies" id="search" class="search">
+        <form action="/api/index" method="GET">
+            <input type="text" placeholder="Search for movies" name="search">
         </form>
         </header>
 
         <h1>{{appTitle}} 🚀</h1>
 <p>Welcome Ironhacker!</p>
+
+
+{{#each data.results}}
+{{original_title}}
+
+
+<img src="https://image.tmdb.org/t/p/w500{{poster_path}}">
+{{/each}}

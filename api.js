@@ -22,17 +22,18 @@ app.get('/', (req, res)=>{
 
 
 const axios = require('axios');
+const { response } = require("./app");
 
 
-app.get('/result', (req, res)=>{
+app.get('/index', (req, res)=>{
 let query = req.query.search;
     axios
     .get("https://api.themoviedb.org/3/search/movie?api_key="+ API_KEY+ "&query="+query)
-    .then(res => {
-      console.log(`statusCode: ${res.status}`);
-      console.log(res.data);
-      let data = JSON.parse(body);
-            res.render('result', {data: data, querySearch: query});
+    .then(response => {
+      console.log(`statusCode: ${response.status}`);
+      console.log(response.data);
+      let data = response.data;
+            res.render('index', {data: data, querySearch: query});
     })
     .catch(error => {
       console.error(error);
