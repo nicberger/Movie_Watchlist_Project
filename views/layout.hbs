@@ -4,42 +4,51 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Movie Watchlist</title>
-    <link rel="shortcut icon" href="/public/images/icon-movie_wachtlist.png">
+    <title>Movies Watchlist</title>
+    <link rel="shortcut icon" href="/images/icon-movie_wachtlist.png">
     <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   </head>
 
   <body>
+
     <div class="nav-container">
       <nav>
-        <div>
-          <img src="/public/images/icon-movie_wachtlist.png" alt="icon">
-        </div>
+        <a href="/">
+          <img src="/images/moviesWatchlist-logo.png" alt="logo">
+        </a>
+          
+        
         <ul class="nav-links">
           {{!--  If there is a user I want to display your personal-user-page --}}
           {{!-- If there is no user I want to display Login and Create Account --}}
+
+          {{#if isLoggedIn}} 
           <li>
-            <a href="/auth/login">Log In</a>
-          </li>
-          <li>
-            <a href="/auth/signup"> Create Account</a>
-          </li>
-            
-          
-          
-          {{!-- {{#if isLoggedIn}}
-          <li>
-            <a href="/"></a>
+            <a href="/auth/logout"></a>
           </li>
 
-          {{/if}} --}}
+          {{else}}
+          <li>
+            <a href="/auth/login">LOG IN</a>
+          </li>
+          <li>
+            <a href="/auth/signup"> CREAT ACCOUNT</a>
+          </li>
+          
+          {{/if}}
+            
         </ul>
       </nav>
     </div>
 
+    
 
-    {{{body}}}
 
+    <main class="container">{{{body}}}</main>
+    <footer>&copy; Movies Watchlist | 2022</footer>
     <script src="/js/script.js"></script>
   </body>
 

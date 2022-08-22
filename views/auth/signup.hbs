@@ -1,12 +1,21 @@
 <form action="/auth/signup" method="POST">
-   <label> Username
-      <input type="text" name="username">
+   <label> Email
+      <input type="text" name="email" placeholder="Your Email Address">
    </label>
-   <label> Password
-      <input type="password" name="password">
-   </label>
+   <br />
 
-   <button type="submit">Submit</button>
+   <label> Username
+      <input type="text" name="username" placeholder="Your Username">
+   </label>
+   <br />
+
+
+   <label> Password
+      <input type="password" name="password" placeholder="You Password">
+   </label>
+   <br />
+
+   <button type="submit">Sign Up</button>
 </form>
 
 {{#if errorMessage}}

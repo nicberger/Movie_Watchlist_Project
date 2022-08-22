@@ -5,8 +5,6 @@ require("dotenv/config");
 // ℹ️ Connects to the database
 require("./db");
 
-
-
 // Handles http requests (express is node js framework)
 // https://www.npmjs.com/package/express
 const express = require("express");
@@ -24,6 +22,9 @@ const capitalized = require("./utils/capitalized");
 const projectName = "Movie_Watchlist_Project";
 
 app.locals.appTitle = `${capitalized(projectName)} created with IronLauncher`;
+
+// Make everything inside of public/ available
+app.use(express.static("public"));
 
 // 👇 Start handling routes here
 const index = require("./routes/index.routes");

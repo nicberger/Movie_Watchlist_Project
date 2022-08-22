@@ -1,13 +1,118 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: yellow;
+/* *********RESET CSS******* */
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 a {
-  color: #00b7ff;
+  display: block;
+  color: inherit;
+  font-family: inherit;
+  text-align: none;
 }
+
+/* ***********GLOBAL STYLES************ */
+
+body {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  height: 100vh;
+  padding: 10px 15px;
+  font-family: 'Roboto', sans-serif;
+  color:white;
+  background-color: black;
+  
+}
+
+nav {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 1rem;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 1rem;
+}
+
+/* Navbar */
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  margin: 10px;
+  
+}
+
+.nav-links a:hover {
+  text-decoration: none;
+  color: yellow;
+}
+
+.nav-links a {
+  text-decoration: none;
+  position: relative;
+}
+
+.nav-links a:after {
+  border-radius: 1em;
+  border-top: .1em solid yellow;
+  content: "";
+  position: absolute;
+    right: 100%;
+    bottom: -0.7em;
+    left: 0;
+  transition: right .4s cubic-bezier(0,.5,0,1);
+}
+
+.nav-links a:hover:after {
+  right: 0;
+}
+
 
 h1 {
   color: 15px;
 }
+
+.nav-links {
+  list-style: none;
+  }
+
+  ul.nav-links {
+    display: flex;
+  }
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+  }
+
+  nav img {
+      width: 250px;
+    }
+
+    
+    footer {
+      text-align: center;
+      background-color: var(--primary-bg-color);
+      padding: 1rem;
+    }
+
+
+    /* LOG IN PAge */
+
+    h2.title {
+      text-align: center;
+      margin: 20px;
+  }
