@@ -1,19 +1,56 @@
-<form action="/auth/signup" method="POST">
-   <label> Email
-      <input type="text" name="email" placeholder="Your Email Address">
-   </label>
-   <br />
-
+<form method="post" action="/auth/signup" method="POST">
+<p>
    <label> Username
-      <input type="text" name="username" placeholder="Your Username">
+      <input 
+      type="text" 
+      name="username" 
+      placeholder="Your Username" 
+      value="{{username}}"
+      />
+      {{#if usernameError}} 
+         <div>{{usernameError}}</div>
+      {{/if}}
    </label>
-   <br />
+</p>
 
-
+<p>
+   <label> Email
+      <input 
+      type="text" 
+      name="email" 
+      placeholder="Your Email Address"
+      value="{{email}}"
+      >
+      {{#if emailError}}
+         <div>{{emailError}}</div>
+      {{/if}}
+   </label>
+</p>
+   
+<p>
    <label> Password
       <input type="password" name="password" placeholder="You Password">
+      {{#if passwordError}}
+         <div>{{passwordError}}</div>
+      {{/if}}
    </label>
-   <br />
+</p>
+
+<p>
+   <label>Confirm Password
+      <input
+         type='password'
+         name='confirmPassword'
+         placeholder='Confirm your password'
+    />
+   </label>
+</p>
+
+
+   
+
+
+  <br />
 
    <button type="submit">Sign Up</button>
 </form>

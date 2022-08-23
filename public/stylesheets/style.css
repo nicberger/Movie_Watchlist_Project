@@ -13,6 +13,7 @@ a {
   color: inherit;
   font-family: inherit;
   text-align: none;
+  text-decoration: none;
 }
 
 /* ***********GLOBAL STYLES************ */
@@ -54,7 +55,7 @@ nav {
 
 .nav-links a:hover {
   text-decoration: none;
-  color: yellow;
+  color:#FBC50C;
 }
 
 .nav-links a {
@@ -64,7 +65,7 @@ nav {
 
 .nav-links a:after {
   border-radius: 1em;
-  border-top: .1em solid yellow;
+  border-top: .1em solid #FBC50C;
   content: "";
   position: absolute;
     right: 100%;
