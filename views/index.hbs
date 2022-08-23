@@ -2,7 +2,7 @@
 {{!-- SEARCH INPUT FIELD   --}}
     
     <header>
-        <form action="/api/index" method="GET">
+        <form action="/api/result" method="GET">
             <input type="text" placeholder="Search for movies" name="search" class="search">
         </form>
         </header>
@@ -10,21 +10,3 @@
 {{!-- PROJECT HEADING (can be deleted) --}}
 <h1>{{appTitle}} 🚀</h1>
 <p>Welcome Ironhacker!</p>
-
-<main id="main">
-{{#each data.results}}
-
-
-{{!-- TITLE MOVIE --}}
-<div class="movie-info">
-<h3>{{original_title}}</h3>
-</div>
-
-
-{{!-- MOVIE POSTER --}}
-<div class="movie">
-<img src="https://image.tmdb.org/t/p/w500{{poster_path}}">
-</div>
-
-{{/each}}
-</main>
