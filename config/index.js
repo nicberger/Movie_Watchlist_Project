@@ -58,7 +58,7 @@ module.exports = (app) => {
       resave: false,
       saveUninitialized: false,
       store: MongoStore.create({
-        mongoUrl: MONGO_URL,
+        mongoUrl: MONGO_URI,
       }),
     })
   );

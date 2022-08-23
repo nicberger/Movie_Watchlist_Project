@@ -23,9 +23,15 @@ const projectName = "Movie_Watchlist_Project";
 
 app.locals.appTitle = `${capitalized(projectName)} created with IronLauncher`;
 
+// Make everything inside of public/ available
+app.use(express.static("public"));
+
 // 👇 Start handling routes here
 const index = require("./routes/index.routes");
 app.use("/", index);
+
+const api = require("./api")
+app.use("/api", api);
 
 const authRoutes = require("./routes/auth.routes");
 app.use("/auth", authRoutes);
