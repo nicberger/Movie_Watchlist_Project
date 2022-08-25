@@ -34,6 +34,10 @@ header{
     background-color: var(--secondary-color);
 }
 
+
+
+
+/* Everything from here is styling for the results page */
 /* SEARCH BAR  */
 
 .search{
@@ -58,7 +62,7 @@ header{
 main{
     display:flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content:center;
 }
 
 
@@ -88,4 +92,3 @@ main{
 .movie-info h3{
     margin-top: 0;
 }
-
