@@ -30,7 +30,7 @@ app.use(express.static("public"));
 const index = require("./routes/index.routes");
 app.use("/", index);
 
-const api = require("./api")
+const api = require("./api");
 app.use("/api", api);
 
 const authRoutes = require("./routes/auth.routes");
@@ -40,6 +40,3 @@ app.use("/auth", authRoutes);
 require("./error-handling")(app);
 
 module.exports = app;
-
-//test
-//test2

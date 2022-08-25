@@ -38,13 +38,14 @@
             <a href="/auth/signup"> CREAT ACCOUNT</a>
           </li>
 
-          <form action="/api/result" method="GET">
-            <input type="text" placeholder="Search for movies" name="search" class="search">
-          </form>
           
           {{/if}}
             
         </ul>
+          <form action="/api/result" method="GET">
+            <input type="text" placeholder="Search for movies " name="search" class="search">
+            
+          </form>
       </nav>
     </div>
 
@@ -52,7 +53,7 @@
 
 
     <main class="container">{{{body}}}</main>
-    <footer>&copy; Movies Watchlist | 2022</footer>
+    <footer>&copy; Movies Watchlist | 2022 - Made by Daiane Reina and Nico Schmock - Film Data from <a href="https://www.themoviedb.org/">TMDb</a>  </footer>
     <script src="/js/script.js"></script>
   </body>
 

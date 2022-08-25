@@ -1,4 +1,7 @@
 <form method="post" action="/auth/signup" method="POST">
+
+<h2> Register Here </h2>
+
 <p>
    <label> Username
       <input 
@@ -16,7 +19,7 @@
 <p>
    <label> Email
       <input 
-      type="text" 
+      type="email" 
       name="email" 
       placeholder="Your Email Address"
       value="{{email}}"
@@ -52,7 +55,7 @@
 
   <br />
 
-   <button type="submit">Sign Up</button>
+   <button type="submit">Create Your Account</button>
 </form>
 
 {{#if errorMessage}}

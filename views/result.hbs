@@ -1,15 +1,7 @@
     
-{{!-- SEARCH INPUT FIELD   --}}
-    
-    <header>
-        <form action="/api/index" method="GET">
-            <input type="text" placeholder="Search for movies" name="search" class="search">
-        </form>
-        </header>
+<h2>Found {{data.total_results}} films matching "{{querySearch}} "</h2>
 
-{{!-- PROJECT HEADING (can be deleted) --}}
-<h1>{{appTitle}} 🚀</h1>
-<p>Welcome Ironhacker!</p>
+<br>
 
 <main id="main">
 {{#each data.results}}
@@ -18,6 +10,8 @@
 
 
 {{!-- MOVIE POSTER --}}
+<div>
+
 <div class="movie">
 <img src="https://image.tmdb.org/t/p/w500{{poster_path}}">
 </div>
@@ -27,6 +21,7 @@
 {{!-- TITLE MOVIE --}}
 <div class="movie-info">
 <h3>{{original_title}}</h3>
+</div>
 </div>
 
 {{/each}}

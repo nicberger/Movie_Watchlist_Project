@@ -5,7 +5,7 @@ const bcrypt = require("bcrypt");
 const mongoose = require("mongoose");
 
 // How many rounds should bcrypt run the salt (default [10 - 12 rounds])
-const saltRounds = 10;
+const saltRounds = 15;
 
 // Require the User model in order to interact with the database
 const User = require("../models/User.model");
@@ -19,17 +19,54 @@ router.get("/signup", isLoggedOut, (req, res) => {
 });
 
 router.post("/signup", isLoggedOut, (req, res) => {
-  const { username, password } = req.body;
+  const { username, email, password, confirmPassword } = req.body;
 
   if (!username) {
     return res.status(400).render("auth/signup", {
-      errorMessage: "Please provide your username.",
+      usernameError: "Please, add a username.",
+      ...req.body, //I need to understand why?????
+    });
+  }
+
+  if (username.length < 4) {
+    return res.status(400).render("auth/signup", {
+      usernameError: "Your username needs to be at least 4 characters long.",
+      ...req.body, //I need to understand why?????
+    });
+  }
+
+  if (!email) {
+    return res.status(400).render("auth/signup", {
+      emailError: "Please, add an email.",
+      //...req.body, //I need to understand why?????
+    });
+  }
+
+  if (!email.includes("@")) {
+    return res.status(400).render("auth/signup", {
+      emailError: "Please, enter a valid email address.",
+      //...req.body, //I need to understand why?????
+    });
+  }
+
+  if (!password) {
+    return res.status(400).render("auth/signup", {
+      passwordError: "Please, add a password.",
+      ...req.body, //I need to understand why?????
     });
   }
 
   if (password.length < 8) {
     return res.status(400).render("auth/signup", {
-      errorMessage: "Your password needs to be at least 8 characters long.",
+      passwordError: "Your password needs to be at least 8 characters long.",
+      ...req.body,
+    });
+  }
+
+  if (password !== confirmPassword) {
+    return res.status(400).render("auth/signup", {
+      passwordError: "The password confirmation doesn't match.",
+      ...req.body,
     });
   }
 
@@ -46,12 +83,13 @@ router.post("/signup", isLoggedOut, (req, res) => {
   */
 
   // Search the database for a user with the username submitted in the form
-  User.findOne({ username }).then((found) => {
+  User.findOne({ $or: [{ username }, { email }] }).then((found) => {
     // If the user is found, send the message username is taken
     if (found) {
-      return res
-        .status(400)
-        .render("auth.signup", { errorMessage: "Username already taken." });
+      return res.status(400).render("auth.signup", {
+        errorMessage: "Either mail or Username already taken.",
+        ...req.body,
+      });
     }
 
     // if user is not found, create a new user - start with hashing the password
@@ -62,13 +100,15 @@ router.post("/signup", isLoggedOut, (req, res) => {
         // Create a user and save it in the database
         return User.create({
           username,
+          email,
           password: hashedPassword,
         });
       })
       .then((user) => {
         // Bind the user to the session object
-        req.session.user = user;
-        res.redirect("/");
+        console.log("createdUser:", user);
+        req.session.userId = user._id;
+        res.redirect(`/user/${user._id}`);
       })
       .catch((error) => {
         if (error instanceof mongoose.Error.ValidationError) {
@@ -80,6 +120,7 @@ router.post("/signup", isLoggedOut, (req, res) => {
           return res.status(400).render("auth/signup", {
             errorMessage:
               "Username need to be unique. The username you chose is already in use.",
+            ...req.body,
           });
         }
         return res
@@ -127,9 +168,9 @@ router.post("/login", isLoggedOut, (req, res, next) => {
             errorMessage: "Wrong credentials.",
           });
         }
-        req.session.user = user;
-        // req.session.user = user._id; // ! better and safer but in this case we saving the entire user object
-        return res.redirect("/");
+        // req.session.user = user;
+        req.session.user = user._id; // ! better and safer but in this case we saving the entire user object
+        return res.redirect(`/user/${user._id}`);
       });
     })
 
@@ -137,12 +178,13 @@ router.post("/login", isLoggedOut, (req, res, next) => {
       // in this case we are sending the error handling to the error handling middleware that is defined in the error handling file
       // you can just as easily run the res.status that is commented out below
       next(err);
-      // return res.status(500).render("login", { errorMessage: err.message });
+      return res.status(500).render("login", { errorMessage: err.message });
     });
 });
 
 router.get("/logout", isLoggedIn, (req, res) => {
   req.session.destroy((err) => {
+    res.clearCookie("clear-cookie");
     if (err) {
       return res
         .status(500)
