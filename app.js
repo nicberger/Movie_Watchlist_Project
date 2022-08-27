@@ -1,13 +1,10 @@
 // ℹ️ Gets access to environment variables/settings
 // https://www.npmjs.com/package/dotenv
 const dotenv = require("dotenv");
-dotenv.config({path:".env"})
-
+dotenv.config({ path: ".env" });
 
 // ℹ️ Connects to the database
 require("./db");
-
-
 
 // Handles http requests (express is node js framework)
 // https://www.npmjs.com/package/express
@@ -31,7 +28,7 @@ app.locals.appTitle = `${capitalized(projectName)} created with IronLauncher`;
 const index = require("./routes/index.routes");
 app.use("/", index);
 
-const api = require("./api")
+const api = require("./api");
 app.use("/api", api);
 
 const authRoutes = require("./routes/auth.routes");

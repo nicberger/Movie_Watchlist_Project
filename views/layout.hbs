@@ -39,6 +39,9 @@
         </div>
         </header>
 
+  {{#if isLoggedIn}}
+    <h1>Hello, {{user.username}}! </h1>
+{{/if}}
     {{{body}}}
     <div class="footer">
     <footer>Movies Watchlist | 2022 - Made by Daiane Reina and Nico Schmock - Film Data from <a href="https://www.themoviedb.org/">TMDb</a>  </footer>

@@ -8,13 +8,12 @@ const userSchema = new Schema(
       // unique: true -> Ideally, should be unique, but its up to you
     },
     password: String,
-    watchlist: [{type:Schema.Types.ObjectId,ref: "Watchlist"}]
+    watchlist: [{ type: Schema.Types.ObjectId, ref: "Watchlist" }],
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`
     timestamps: true,
-  },
-
+  }
 );
 
 const User = model("User", userSchema);

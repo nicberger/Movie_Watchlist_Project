@@ -6,14 +6,13 @@ const mongoose = require("mongoose");
 // If no env has been set, we dynamically set it to whatever the folder name was upon the creation of the app
 
 // const MONGO_URI = require("../utils/consts");
-const MONGO_URL = "mongodb+srv://nicberger:pallmall356@cluster0.4smeofm.mongodb.net/?retryWrites=true&w=majority" || "mongodb://localhost:27017"
+const MONGO_URL =
+  "mongodb+srv://nicberger:pallmall356@cluster0.4smeofm.mongodb.net/?retryWrites=true&w=majority" ||
+  "mongodb://localhost:27017";
 
-
-mongoose.connect(MONGO_URL).then ((connection)=> {
-  console.log("Connected to Mongo"+ MONGO_URL);
-})
-
-
+mongoose.connect(MONGO_URL).then((connection) => {
+  console.log("Connected to Mongo" + MONGO_URL);
+});
 
 // mongoose
 //   .connect(MONGO_URI)

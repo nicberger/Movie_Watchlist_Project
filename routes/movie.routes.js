@@ -17,9 +17,9 @@ filmRouter.get("/add", isLoggedIn, (req, res) => {
 });
 
 filmRouter.post("/add", isLoggedIn, (req, res) => {
-  console.log('ICH BIN ROUTE');
+  console.log("ICH BIN ROUTE");
   const { title, description, authors, publisher, genre, nsfw, year } =
-    req.body;//adapt to film model?
+    req.body; //adapt to film model?
 
   // const authorArray = authors.split(",").map((author) => author.trim());
 
@@ -66,7 +66,6 @@ filmRouter.get("/:filmId", (req, res) => {
 // });
 
 bookRouter.get("/:bookId/request", isLoggedIn, (req, res) => {
- 
   const isValidBookId = isValidObjectId(req.params.bookId);
 
   if (!isValidBookId) {
