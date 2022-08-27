@@ -1,28 +1,33 @@
-    
-<h2>Found {{data.total_results}} films matching "{{querySearch}} "</h2>
-
-<br>
-
 <main id="main">
 {{#each data.results}}
-
-
-
 
 {{!-- MOVIE POSTER --}}
 <div>
 
 <div class="movie">
+    {{#if poster_path.length}}
 <img src="https://image.tmdb.org/t/p/w500{{poster_path}}">
-</div>
+ {{/if}}
 
 
 
 {{!-- TITLE MOVIE --}}
 <div class="movie-info">
 <h3>{{original_title}}</h3>
+<span class="${getColor(vote_average)}">{{vote_average}}</span>
+
+{{!-- Overview/Movie Info --}}
+<div class="overview">
+<h3>{{original_title}}</h3>
+{{overview}}
+<br>
+<button>Add to the list</button>
 </div>
 </div>
+
+</div>
+
+
 
 {{/each}}
 </main>

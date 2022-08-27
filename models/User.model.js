@@ -13,11 +13,8 @@ const userSchema = new Schema(
       unique: true,
       required: true,
     },
-    password: {
-      type: String,
-      unique: true,
-      required: true,
-    },
+    password: String,
+    watchlist: [{ type: Schema.Types.ObjectId, ref: "Watchlist" }],
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`

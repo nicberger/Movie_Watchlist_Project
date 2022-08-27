@@ -10,9 +10,6 @@ const MONGO_URL =
   "mongodb+srv://nicberger:pallmall356@cluster0.4smeofm.mongodb.net/?retryWrites=true&w=majority" ||
   "mongodb://localhost:27017";
 
-//mongodb+srv://daianereina:A1Uv$4hegPY6@cluster0.7i9svgp.mongodb.net/?retryWrites=true&w=majority
-//mongodb+srv://nicberger:pallmall356@cluster0.4smeofm.mongodb.net/?retryWrites=true&w=majority
-
 mongoose.connect(MONGO_URL).then((connection) => {
   console.log("Connected to Mongo" + MONGO_URL);
 });

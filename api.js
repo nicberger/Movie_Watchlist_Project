@@ -1,7 +1,7 @@
 const app = require("express").Router();
 
 //TMDB
-const API_KEY = "81a50cc70061c7a1a7e9bf42ab72a25d";
+const API_KEY = process.env.API_KEY;
 const BASE_URL = "https://api.themoviedb.org/3";
 const API_URL = BASE_URL + "/discover/movie?sort_by=popularity.desc&" + API_KEY;
 const IMG_URL = "https://image.tmdb.org/t/p/w500";
@@ -15,10 +15,6 @@ const searchURL = BASE_URL + "/search/movie?" + API_KEY;
 //     }
 //         )
 // }
-
-app.get("/", (req, res) => {
-  res.render("auth/search");
-});
 
 const axios = require("axios");
 const { response } = require("./app");
