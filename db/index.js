@@ -7,7 +7,7 @@ const mongoose = require("mongoose");
 
 const MONGO_URI = require("../utils/consts");
 
-mongoose.connect(MONGO_URL).then((connection) => {
+mongoose.connect(MONGO_URI).then((connection) => {
     console.log("Connected to Mongo" + MONGO_URL);
 });
 
