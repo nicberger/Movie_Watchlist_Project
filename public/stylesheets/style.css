@@ -34,12 +34,86 @@ header{
     background-color: var(--secondary-color);
 }
 
+.footer {
+  position:fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  text-align: center;
+}
+
+
+/* Navbar */
+.nav-links a {
+    color: var(--primary-color);
+    text-decoration: none;
+    margin: 10px;
+    
+  }
+  
+.nav-links a:hover {
+    text-decoration: none;
+    color: var(--primary-color);
+  }
+  
+  .nav-links a {
+    text-decoration: none;
+    position: relative;
+  }
+  
+  .nav-links a:after {
+    border-radius: 1em;
+    border-top: .1em solid  var(--primary-color);
+    content: "";
+    position: absolute;
+      right: 100%;
+      bottom: -0.7em;
+      left: 0;
+    transition: right .4s cubic-bezier(0,.5,0,1);
+  }
+  
+  .nav-links a:hover:after {
+    right: 0;
+  }
+  
+  
+  
+  .nav-links {
+    list-style: none;
+    }
+  
+    ul.nav-links {
+      display: flex;
+    }
+  
+  nav {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 20px;
+    }
+  
+      nav img {
+        width: 250px;
+      }
+  
+      
+      footer {
+        text-align: center;
+        background-color: var(--primary-bg-color);
+        padding: 1rem;
+      }
+
+
+/************* Everything from here is styling for the results page **************/
 
 
 
-/* Everything from here is styling for the results page */
+
 /* SEARCH BAR  */
-
 .search{
     background-color: transparent;
     border: 2px solid var(--primary-color);
@@ -93,6 +167,7 @@ main{
     margin-top: 0;
 }
 
+/* Overview Hover */
 .overview{
     color:#fff;
     position:absolute;

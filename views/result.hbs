@@ -1,12 +1,3 @@
-    
-{{!-- SEARCH INPUT FIELD   --}}
-    
-    <header>
-        <form action="/api/result" method="GET">
-            <input type="text" placeholder="Search for movies" name="search" class="search">
-        </form>
-        </header>
-
 <main id="main">
 {{#each data.results}}
 
@@ -31,6 +22,9 @@
 <div class="overview">
 <h3>{{original_title}}</h3>
 {{overview}}
+<br>
+<button>Add to the list</button>
+</div>
 </div>
 
 
