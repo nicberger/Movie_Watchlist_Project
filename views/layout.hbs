@@ -4,60 +4,55 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Movies Watchlist</title>
-    <link rel="shortcut icon" href="/images/icon-movie_wachtlist.png">
+    <title>{{appTitle}}</title>
     <link rel="stylesheet" href="/stylesheets/style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   </head>
 
   <body>
-
+    <header>
     <div class="nav-container">
-      <nav>
-        <a href="/">
-          <img src="/images/moviesWatchlist-logo.png" alt="logo">
-        </a>
-          
-        
-        <ul class="nav-links">
-          {{!--  If there is a user I want to display your personal-user-page --}}
-          {{!-- If there is no user I want to display Login and Create Account --}}
+         <nav>
+           <ul class="nav-links">
+             <li>
+             <a href="/">HOME</a>
+             </li>
+              {{#if isLoggedIn}}
+                <li>
+                  <a href="/watchlist">My Watchlist</a>
+                </li>
+                <li>
+                  <a href="/auth/logout"> Logout</a>
+                </li>
+                 {{else}}
+                <li>
+                  <a href="/auth/login">LOG IN</a>
+                </li>
+                <li>
+                  <a href="/auth/signup"> CREATE ACCOUNT</a>
+                </li>
+              {{/if}}
+              </ul>   
 
-          {{#if isLoggedIn}} 
-          
-          <li>
-            <a href="/auth/logout"></a>
-          </li>
-
-          {{else}}
-          
-
-          <li>
-            <a href="/auth/login">LOG IN</a>
-          </li>
-          <li>
-            <a href="/auth/signup"> CREAT ACCOUNT</a>
-          </li>
-
-          
-          {{/if}}
-            
-        </ul>
-          <form action="/api/result" method="GET">
-            <input type="text" placeholder="Search for movies " name="search" class="search">
-            
-          </form>
-      </nav>
+              <form action="/api/result" method="GET">
+              <input type="text" placeholder="Search for movies" name="search" class="search">
+              </form>
+          </nav>
     </div>
+  </header>
 
-    
+  {{!-- {{#if isLoggedIn}}
+    <h1>Hello, {{user.username}}! </h1>
+{{/if}} --}}
 
-
-    <main class="container">{{{body}}}</main>
-    <footer>&copy; Movies Watchlist | 2022 - Made by Daiane Reina and Nico Schmock - Film Data from <a href="https://www.themoviedb.org/">TMDb</a>  </footer>
+    {{{body}}}
+    <div class="footer">
+    <footer>Movies Watchlist | 2022 - Made by Daiane Reina and Nico Schmock - Film Data from <a href="https://www.themoviedb.org/">TMDb</a>  </footer>
+    </div>
     <script src="/js/script.js"></script>
   </body>
 
 </html>
+
+
+
+

@@ -61,3 +61,67 @@
 {{#if errorMessage}}
    {{errorMessage}}
 {{/if}}
+
+{{!-- <form method="post" action="/auth/signup" method="POST">
+
+<h2> Register Here </h2>
+
+<p>
+   <label> Username
+      <input 
+      type="text" 
+      name="username" 
+      placeholder="Your Username" 
+      value="{{username}}"
+      />
+      {{#if usernameError}} 
+         <div>{{usernameError}}</div>
+      {{/if}}
+   </label>
+</p>
+
+<p>
+   <label> Email
+      <input 
+      type="email" 
+      name="email" 
+      placeholder="Your Email Address"
+      value="{{email}}"
+      >
+      {{#if emailError}}
+         <div>{{emailError}}</div>
+      {{/if}}
+   </label>
+</p>
+   
+<p>
+   <label> Password
+      <input type="password" name="password" placeholder="You Password">
+      {{#if passwordError}}
+         <div>{{passwordError}}</div>
+      {{/if}}
+   </label>
+</p>
+
+<p>
+   <label>Confirm Password
+      <input
+         type='password'
+         name='confirmPassword'
+         placeholder='Confirm your password'
+    />
+   </label>
+</p>
+
+
+   
+
+
+  <br />
+
+   <button type="submit" >Create Your Account</button>
+</form>
+
+{{#if errorMessage}}
+   {{errorMessage}}
+{{/if}} --}}

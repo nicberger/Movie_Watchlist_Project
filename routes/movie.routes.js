@@ -114,7 +114,9 @@ bookRouter.get("/:bookId/return", isLoggedIn, async (req, res) => {
     return res.status(400).redirect("/book/all");
   }
 
-  await UserModel.findByIdAndUpdate(userId, { $pull: { booksRented: bookId } });
+  await UserModel.findByIdAndUpdate(userId, {
+    $pull: { booksRented: bookId },
+  });
 
   await BookModel.findByIdAndUpdate(bookId, { $inc: { stock: 1 } });
   // const book = await BookModel.findById(bookId);
