@@ -17,6 +17,10 @@
              <a href="/">HOME</a>
              </li>
               {{#if isLoggedIn}}
+              
+                <li>
+                  <a href="/user/{{user._id}}">Profile</a>
+                </li>
                 <li>
                   <a href="/watchlist">My Watchlist</a>
                 </li>

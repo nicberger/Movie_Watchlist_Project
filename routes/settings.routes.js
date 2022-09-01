@@ -5,14 +5,20 @@ const {
   Types: { ObjectId },
 } = require("mongoose");
 
+const bcrypt = require("bcrypt");
+
 const settingsRouter = Router();
+
+const flash = require("req-flash");
 
 settingsRouter.get("/", isLoggedIn, (req, res) => {
   res.render("settings/home");
 });
 
+// *******UPDATING USER **********
 settingsRouter.get("/update-user", isLoggedIn, async (req, res) => {
   const user = await UserModel.findById(req.session.user._id);
+
   console.log("The User:", req.session.user);
   console.log(" 🔍 The req.session.userId is: ", req.session.user._id);
 
@@ -25,7 +31,7 @@ settingsRouter.get("/update-user", isLoggedIn, async (req, res) => {
 settingsRouter.post("/update-user", isLoggedIn, async (req, res) => {
   const { username = "", email = "" } = req.body;
 
-  //*********The validation*************
+  //The validation
   if (username.length < 4) {
     return res.status(400).render("settings/update-user", {
       usernameError: "Your username needs to be at least 4 characters long.",
@@ -61,6 +67,70 @@ settingsRouter.post("/update-user", isLoggedIn, async (req, res) => {
     errorMessage:
       "One of those is taken, please rewrite either the username or email",
   });
+});
+
+//*******UPDATING PASSWORD **********
+settingsRouter.get("/update-password", isLoggedIn, async (req, res) => {
+  console.log("The User:", req.session.user);
+  console.log(" 🔍 The req.session.userId is: ", req.session.user._id);
+  const user = await UserModel.findById(req.session.user._id);
+  if (!user) {
+    return res.redirect("/");
+  }
+
+  res.render("settings/update-password", { user });
+});
+
+settingsRouter.post("/update-password", isLoggedIn, async (req, res) => {
+  const user = await UserModel.findById(req.session.user._id);
+  console.log("The User🌿 :", req.session.user);
+  console.log("The User Id🌿 :", req.session.user._id);
+
+  if (!user) {
+    return res.redirect("/");
+  }
+
+  const {
+    currentPassword = "",
+    newPassword = "",
+    confirmNewPassword = "",
+  } = req.body;
+
+  if (
+    !currentPassword ||
+    newPassword.length < 8 ||
+    confirmNewPassword.length < 8 ||
+    newPassword !== confirmNewPassword
+  ) {
+    return res.status(400).render("settings/update-password", {
+      user,
+      errorMessage: "Fill every input correctly",
+    });
+  }
+
+  if (currentPassword === newPassword) {
+    return res.status(400).render("settings/update-password", {
+      user,
+      errorMessage: "Please write a new password",
+    });
+  }
+
+  const isSamePassword = bcrypt.compareSync(currentPassword, user.password);
+
+  if (!isSamePassword) {
+    return res.status(400).render("settings/update-password", {
+      user,
+      errorMessage: "That is not your password",
+    });
+  }
+
+  const salt = bcrypt.genSaltSync(10);
+
+  const hashedPassword = bcrypt.hashSync(newPassword, salt);
+
+  await UserModel.findByIdAndUpdate(user._id, { password: hashedPassword });
+
+  res.redirect(`/user/${req.session.user._id}`);
 });
 
 module.exports = settingsRouter;
