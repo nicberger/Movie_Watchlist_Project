@@ -40,6 +40,9 @@ app.use("/user", userRoutes);
 const watchlistRoutes = require("./routes/watchlist.routes");
 app.use("/watchlist", watchlistRoutes);
 
+const settingsRouter = require("./routes/settings.routes");
+app.use("/settings", settingsRouter);
+
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);
 
