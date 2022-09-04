@@ -164,10 +164,9 @@ settingsRouter.post("/update-password", isLoggedIn, async (req, res) => {
 
 //******* DELETE ACCOUNT **********
 
-settingsRouter.get("/delete-account/:_id", isLoggedIn, async (req, res) => {
-  // console.log("The User:", req.session.user);
-  // console.log(" 🔍 The req.session.userId is: ", req.session.user._id);
+settingsRouter.get("/delete-account", isLoggedIn, async (req, res) => {
   const user = await UserModel.findById(req.session.user._id);
+
   if (!user) {
     return res.redirect("/");
   }
@@ -175,91 +174,41 @@ settingsRouter.get("/delete-account/:_id", isLoggedIn, async (req, res) => {
   res.render("settings/delete-account", { user });
 });
 
-// settingsRouter.post("/delete-account", isLoggedIn, async (req, res) => {
-//   const user = await UserModel.findById(req.session.user._id);
+settingsRouter.post("/delete-account", isLoggedIn, async (req, res) => {
+  const user = await UserModel.findById(req.session.user._id);
 
-//   if (!user) {
-//     return res.redirect("/");
-//   }
+  if (!user) {
+    return res.redirect("/");
+  }
 
-//   const { confirmPassword } = req.body;
+  const { password } = req.body;
 
-//   if (!confirmPassword) {
-//     return res.status(400).render("settings/delete-account", {
-//       user,
-//       errorMessage: "Please provide your password.",
-//     });
-//   }
+  if (!password) {
+    return res.status(400).render("settings/delete-account", {
+      user,
+      errorMessage: "Please provide your password.",
+    });
+  }
 
-//   const isSamePassword = bcrypt.compareSync(confirmPassword, user.password);
+  const isSamePassword = bcrypt.compareSync(password, user.password);
 
-//   if (!isSamePassword) {
-//     return res.status(400).render("settings/delete-account", {
-//       user,
-//       errorMessage: "Wrong Credentials",
-//     });
-//   }
+  if (!isSamePassword) {
+    return res.status(400).render("settings/delete-account", {
+      user,
+      errorMessage: "Wrong Credentials",
+    });
+  }
 
-//   await UserModel.findByIdAndDelete(ObjectId(req.session.user._id));
-// });
+  await UserModel.findByIdAndDelete(req.session.user._id);
 
-// settingsRouter.delete("/delete-account", isLoggedIn, async (req, res) => {
-//   const user = await UserModel.findById(req.session.user._id);
-
-//   if (!user) {
-//     return res.redirect("/");
-//   }
-
-//   const { confirmPassword } = req.body;
-
-//   if (!confirmPassword) {
-//     return res.status(400).render("settings/delete-account", {
-//       user,
-//       errorMessage: "Please provide your password.",
-//     });
-//   }
-
-//   const isSamePassword = bcrypt.compareSync(confirmPassword, user.password);
-
-//   if (!isSamePassword) {
-//     return res.status(400).render("settings/delete-account", {
-//       user,
-//       errorMessage: "Wrong Credentials",
-//     });
-//   }
-
-//   await UserModel.findByIdAndDelete(ObjectId(req.session.user._id));
-// });
-
-// settingsRouter.post("/delete-account", isLoggedIn, async (req, res) => {
-//   const user = await UserModel.findById(req.session.user._id);
-
-//   const { password } = req.body;
-
-//   if (!user) {
-//     return res.status(400).render("settings/delete-account", {
-//       errorMessage: "Please provide your password.",
-//     });
-//   }
-
-//   const isSamePassword = bcrypt.compareSync(password, user.password);
-
-//   if (!isSamePassword) {
-//     return res.status(400).render("settings/delete-account", {
-//       user,
-//       errorMessage: "That is not your password",
-//     });
-//   }
-
-// bcrypt.compare(password, user.password).then((isSamePassword) => {
-//   console.log("Is the same password?", isSamePassword);
-//   if (!isSamePassword) {
-//     return res.status(400).render("auth/login", {
-//       errorMessage: "Wrong credentials.",
-//     });
-//   }
-// });
-
-// const user = await UserModel.findByIdAndDelete(req.session.user._id);
+  req.session.destroy((err) => {
+    if (err) {
+      return res
+        .status(500)
+        .render("auth/logout", { errorMessage: err.message });
+    }
+    res.redirect("/");
+  });
+});
 
 module.exports = settingsRouter;
