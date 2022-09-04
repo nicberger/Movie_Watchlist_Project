@@ -16,6 +16,11 @@ const hbs = require("hbs");
 
 const app = express();
 
+// Handle with flash mensages
+// https://www.npmjs.com/package/req-flash
+
+const flash = require("req-flash");
+
 // ℹ️ This function is getting exported from the config folder. It runs most pieces of middleware
 require("./config")(app);
 

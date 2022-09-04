@@ -15,13 +15,10 @@
            <ul class="nav-links">
              <li>
              <a href="/">HOME</a>
+             
              </li>
               {{#if isLoggedIn}}
-              
-                <li>
-                  <a href="/user/{{user._id}}">Profile</a>
-                </li>
-                <li>
+                 <li>
                   <a href="/watchlist">My Watchlist</a>
                 </li>
                 <li>
@@ -47,9 +44,7 @@
     </div>
   </header>
 
-  {{!-- {{#if isLoggedIn}}
-    <h1>Hello, {{user.username}}! </h1>
-{{/if}} --}}
+ 
 
     {{{body}}}
     <div class="footer">

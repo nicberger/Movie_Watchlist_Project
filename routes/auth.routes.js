@@ -10,7 +10,7 @@ const saltRounds = 10;
 // Require the User model in order to interact with the database
 const User = require("../models/User.model");
 
-// Require necessary (isLoggedOut and isLiggedIn) middleware in order to control access to specific routes
+// Require necessary (isLoggedOut and isLoggedIn) middleware in order to control access to specific routes
 const isLoggedOut = require("../middleware/isLoggedOut");
 const isLoggedIn = require("../middleware/isLoggedIn");
 
@@ -107,6 +107,7 @@ router.post("/signup", isLoggedOut, (req, res) => {
         // Bind the user to the session object
         req.session.user = user;
         res.redirect(`/user/${user._id}`);
+        // res.redirect("/");
       })
       .catch((error) => {
         if (error instanceof mongoose.Error.ValidationError) {
@@ -127,6 +128,7 @@ router.post("/signup", isLoggedOut, (req, res) => {
   });
 });
 
+//LOGIN*********************************
 router.get("/login", isLoggedOut, (req, res) => {
   res.render("auth/login");
 });
@@ -168,6 +170,7 @@ router.post("/login", isLoggedOut, (req, res, next) => {
         req.session.user = user;
         // req.session.user = user._id; // ! better and safer but in this case we saving the entire user object
         return res.redirect(`/user/${user._id}`);
+        // return res.redirect("/");
       });
     })
 

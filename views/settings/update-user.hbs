@@ -10,6 +10,12 @@
       placeholder="Username"
       value="{{user.username}}"
     />
+     {{#if usernameError}} 
+         <div>{{usernameError}}</div>
+      {{/if}}
+
+
+
   </label>
   <br />
 
@@ -20,10 +26,17 @@
       placeholder="Email"
       value="{{user.email}}"
     />
+       {{#if emailError}} 
+         <div>{{emailError}}</div>
+      {{/if}}
   </label>
   <br />
 
 
   <button type="submit">Save Your Changes</button>
 
+
+  {{#if sucessMessage}} 
+         <div>{{sucessMessage}}</div>
+      {{/if}}
 </form>
