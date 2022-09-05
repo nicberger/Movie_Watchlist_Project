@@ -1,5 +1,5 @@
 const { Schema, model } = require("mongoose");
-const filmSchema = new Schema({
+const watchedSchema = new Schema({
     movieID: {
         type: Number,
     },
@@ -9,9 +9,9 @@ const filmSchema = new Schema({
     poster_path: {
         type: String,
     },
-    user_id: { type: Schema.Types.ObjectId, ref: "Watchlist" },
+    user_id: { type: Schema.Types.ObjectId, ref: "Watched" },
 });
 
-const Film = model("film", filmSchema);
+const Watched = model("watched", watchedSchema);
 
-module.exports = Film;
+module.exports = Watched;

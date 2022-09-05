@@ -21,8 +21,6 @@ app.get("/", (req, res) => {
 });
 
 const axios = require("axios");
-const { response } = require("./app");
-
 app.get("/result", (req, res) => {
     let query = req.query.search;
     axios
@@ -33,8 +31,8 @@ app.get("/result", (req, res) => {
                 query
         )
         .then((response) => {
-            console.log(`statusCode: ${response.status}`);
-            console.log(response.data);
+            // console.log(`statusCode: ${response.status}`);
+            // console.log(response.data);
             let data = response.data;
             res.render("result", {
                 data: data,

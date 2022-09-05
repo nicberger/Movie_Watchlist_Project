@@ -22,8 +22,15 @@
 <div class="overview">
 <h3>{{original_title}}</h3>
 {{overview}}
+
+{{!-- Watched/Watchlist Buttons --}}
+<div class="button-group">
 <br>
-<button>Add to the list</button>
+<a class="buttono" href="/watchlist/create?id={{id}}&original_title={{original_title}}&poster_path={{poster_path}}">Watchlist</a>
+<br>
+<a class="buttono" href="/watchedlist/create?id={{id}}&original_title={{original_title}}&poster_path={{poster_path}}">Watched</a>
+</div>
+{{!-- <button>Add to Watched</button> --}}
 </div>
 </div>
 
@@ -32,3 +39,5 @@
 
 {{/each}}
 </main>
+
+<script src="/js/script.js"></script>

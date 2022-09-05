@@ -1,10 +1,13 @@
+<div class="mainwrap">
+
 <form method="post" action="/auth/signup" method="POST">
 
 <h2> Register Here </h2>
 
 <p>
    <label> Username
-      <input 
+      <input
+      class="un" 
       type="text" 
       name="username" 
       placeholder="Your Username" 
@@ -61,3 +64,4 @@
 {{#if errorMessage}}
    {{errorMessage}}
 {{/if}}
+</div>

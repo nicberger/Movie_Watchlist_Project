@@ -1,3 +1,5 @@
+//helpers
+
 // ℹ️ Gets access to environment variables/settings
 // https://www.npmjs.com/package/dotenv
 const dotenv = require("dotenv");
@@ -13,9 +15,11 @@ const express = require("express");
 // Handles the handlebars
 // https://www.npmjs.com/package/hbs
 const hbs = require("hbs");
+hbs.registerHelper("click", function () {
+    console.log("clicked");
+});
 
 const app = express();
-
 // ℹ️ This function is getting exported from the config folder. It runs most pieces of middleware
 require("./config")(app);
 
@@ -39,6 +43,9 @@ app.use("/user", userRoutes);
 
 const watchlistRoutes = require("./routes/watchlist.routes");
 app.use("/watchlist", watchlistRoutes);
+
+const watchedlistRoutes = require("./routes/watchedlist.routes");
+app.use("/watchedlist", watchedlistRoutes);
 
 const settingsRouter = require("./routes/settings.routes");
 app.use("/settings", settingsRouter);
