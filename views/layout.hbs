@@ -34,15 +34,20 @@
           <li>
             <a href="/auth/login">LOG IN</a>
           </li>
-          <li>
-            <a href="/auth/signup"> CREATE ACCOUNT</a>
-          </li>
+
 {{/if}}
+
+{{#if isLoggedIn}}
     </ul>    
         <form action="/api/result" method="GET">
             <input type="text" placeholder="Search for movies" name="search" class="search">
         </form>
         </nav>
+   {{else}}
+             <li>
+            <a href="/auth/signup"> CREATE AN ACCOUNT</a>
+          </li>
+        {{/if}}
         </div>
         </header>
 

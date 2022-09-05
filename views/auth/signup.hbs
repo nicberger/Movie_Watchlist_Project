@@ -1,11 +1,9 @@
-<div class="mainwrap">
+<div class="mainwrapregister">
 
 <form method="post" action="/auth/signup" method="POST">
 
-<h2> Register Here </h2>
+<p class="sign" align="center">Register</p>
 
-<p>
-   <label> Username
       <input
       class="un" 
       type="text" 
@@ -17,11 +15,8 @@
          <div>{{usernameError}}</div>
       {{/if}}
    </label>
-</p>
-
-<p>
-   <label> Email
-      <input 
+      <input
+      class="un"
       type="email" 
       name="email" 
       placeholder="Your Email Address"
@@ -30,35 +25,18 @@
       {{#if emailError}}
          <div>{{emailError}}</div>
       {{/if}}
-   </label>
-</p>
-   
-<p>
-   <label> Password
-      <input type="password" name="password" placeholder="You Password">
+
+      <input class="un" type="password" name="password" placeholder="Your Password">
       {{#if passwordError}}
          <div>{{passwordError}}</div>
       {{/if}}
    </label>
-</p>
-
-<p>
-   <label>Confirm Password
-      <input
+      <input class="un"
          type='password'
          name='confirmPassword'
          placeholder='Confirm your password'
     />
-   </label>
-</p>
-
-
-   
-
-
-  <br />
-
-   <button type="submit" >Create Your Account</button>
+<button class="registernowbtn" type="submit" >Create Your Account</button>
 </form>
 
 {{#if errorMessage}}

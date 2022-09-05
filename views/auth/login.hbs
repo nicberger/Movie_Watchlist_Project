@@ -1,15 +1,16 @@
-<form action="/auth/login" method="POST">
-   <label> Username
-      <input type="text" name="username">
-   </label>
-   <label> Password
-      <input type="password" name="password">
-   </label>
+<div class="mainwraplogin">
 
-   <button type="submit">Submit</button>
+<p class="sign" align="center">Login</p>
+
+<form action="/auth/login" method="POST">
+      <input class="un" type="text" name="username" placeholder="Your Username" >
+      <input class="un" type="password" name="password" placeholder="Your Password">
+
+   <button class="loginbtn" type="submit">Login</button>
 </form>
 
 {{#if errorMessage}}
    {{errorMessage}}
 {{/if}}
 
+</div>
