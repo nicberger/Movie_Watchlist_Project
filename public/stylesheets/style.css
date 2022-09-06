@@ -1,29 +1,36 @@
+/* body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00b7ff;
+}
+
+h1 {
+  color: 15px;
+} */
+
 *{
   box-sizing: border-box;
-  color: var(--text-color);
-  
 }
 
 :root{
-  --primary-color:#1E252C;
-  --secondary-color: #14181C;
-  --text-color: #ced7e0;
-  --text-color2:#fcc931;
-  
+  --primary-color:#22254b;
+  --secondary-color: #373b69;
 }
 
 body{
   background-color: var(--primary-color);
   font-family: 'Poppins', sans-serif;
   margin: 0;
- 
 }
 
 
 header{
   padding:1rem;
-  /* display:flex;
-  justify-content: flex-end; */
+  display:flex;
+  justify-content: flex-end;
   background-color: var(--secondary-color);
 }
 
@@ -40,8 +47,7 @@ text-align: center;
 
 /* Navbar */
 .nav-links a {
-  
-  color: var(--text-color);
+  color: var(--primary-color);
   text-decoration: none;
   margin: 10px;
   
@@ -49,7 +55,7 @@ text-align: center;
 
 .nav-links a:hover {
   text-decoration: none;
-  color: var(--text-color2);
+  color: var(--primary-color);
 }
 
 .nav-links a {
@@ -59,7 +65,7 @@ text-align: center;
 
 .nav-links a:after {
   border-radius: 1em;
-  border-top: .1em solid  var(--text-color2);
+  border-top: .1em solid  var(--primary-color);
   content: "";
   position: absolute;
     right: 100%;
@@ -87,7 +93,7 @@ nav {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    /* padding-bottom: 20px; */
+    padding-bottom: 20px;
   }
 
     nav img {
@@ -102,10 +108,7 @@ nav {
     }
 
 
-/************* Everything from here is styling for the results page **************/
-
-
-
+/*##########  RESULTS PAGE #############*/
 
 /* SEARCH BAR  */
 .search{
@@ -114,7 +117,7 @@ nav {
   padding:0.5rem 1rem;
   border-radius: 50px;
   font-size: 1rem;
-  color: var(--text-color2);
+  color:#fff;
   font-family: inherit;
 }
 
@@ -124,7 +127,7 @@ nav {
 }
 
 .search::placeholder{
-  color: var(--text-color2);
+  color: #7378c5;
 }
 
 main{
@@ -163,7 +166,7 @@ main{
 
 /* Overview Hover */
 .overview{
-  color:var(--text-color);
+  color:#fff;
   position:absolute;
   left:0;
   right:0;
@@ -178,4 +181,226 @@ main{
 .movie:hover .overview{
   transform:translateY(0);
   background-color: var(--secondary-color);
+}
+
+/* WATCHLIST */
+
+.moviewatchlist {
+width: 150px;
+margin: 0.5rem;
+border-radius: 3px;
+box-shadow: 0.2px 4px 5px rgba(0,0,0,0.1);
+background-color: var(--secondary-color);
+position:relative;
+overflow: hidden;
+}
+
+.moviewatchlist img{
+width:100%;
+}
+
+/* GLOBAL BUTTON STYLING */
+.buttono {
+backface-visibility: hidden;
+background: var(--primary-color);
+border: 0;
+border-radius: .375rem;
+box-sizing: border-box;
+color: #fff;
+cursor: pointer;
+display: inline-block;
+font-family: Circular,Helvetica,sans-serif;
+font-size: 1.125rem;
+font-weight: 700;
+letter-spacing: -.01em;
+line-height: 1.3;
+padding: 1rem 1.25rem;
+position: relative;
+text-align: left;
+text-decoration: none;
+transform: translateZ(0) scale(1);
+transition: transform .2s;
+user-select: none;
+-webkit-user-select: none;
+touch-action: manipulation;
+margin: 0.2cm;
+}
+
+.buttono:disabled {
+color: #787878;
+cursor: auto;
+}
+
+.buttono:not(:disabled):hover {
+transform: scale(1.05);
+}
+
+.buttono:not(:disabled):hover:active {
+transform: scale(1.05) translateY(.125rem);
+}
+
+.buttono:focus {
+outline: 0 solid transparent;
+}
+
+.buttono:focus:before {
+border-width: .125rem;
+content: "";
+left: calc(-1*.375rem);
+pointer-events: none;
+position: absolute;
+top: calc(-1*.375rem);
+transition: border-radius;
+user-select: none;
+}
+
+.buttono:focus:not(:focus-visible) {
+outline: 0 solid transparent;
+}
+
+.buttono:not(:disabled):active {
+transform: translateY(.125rem);
+}
+
+.button-group {
+display: flex;
+}
+
+
+
+/*########## REGISTER, LOGIN AND USER SETTINGS PAGES ###############*/
+
+/* General Settings for the forms */
+
+.sign {
+padding-top: 40px;
+color:#ffffff;
+font-family: 'Ubuntu', sans-serif;
+font-weight: bold;
+font-size: 23px;
+}
+.un {
+width: 76%;
+color: rgb(210, 219, 224);
+font-weight: 700;
+font-size: 14px;
+letter-spacing: 1px;
+background: rgba(243, 240, 240, 0.04);
+padding: 10px 20px;
+border: none;
+border-radius: 20px;
+outline: none;
+box-sizing: border-box;
+border: 2px solid rgba(0, 0, 0, 0.02);
+margin-bottom: 50px;
+margin-left: 46px;
+text-align: center;
+margin-bottom: 20px;
+font-family: 'Ubuntu', sans-serif;
+}
+
+.un:focus, .pass:focus {
+border: 2px solid rgba(0, 0, 0, 0.18) !important;
+}
+
+/* Register Page */
+.mainwrapregister {
+background-color:#4a4c65b0;
+width: 400px;
+height: 400px;
+margin: 2em auto;
+border-radius: 1.5em;
+box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+}
+.registernowbtn {
+cursor: pointer;
+border-radius: 5em;
+color: #fff;
+background: linear-gradient(to right, #424784b0, #5d62b1);
+border: 0;
+padding-left: 40px;
+padding-right: 40px;
+padding-bottom: 10px;
+padding-top: 10px;
+font-family: 'Ubuntu', sans-serif;
+margin-left: 25%;
+font-size: 13px;
+box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+}
+
+/* Login Page */
+.mainwraplogin {
+background-color:#4a4c65b0;
+width: 400px;
+height: 300px;
+margin: 2em auto;
+border-radius: 1.5em;
+box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+}
+.loginbtn {
+cursor: pointer;
+border-radius: 5em;
+color: #fff;
+  background: linear-gradient(to right, #424784b0, #5d62b1);
+  border: 0;
+  padding-left: 80px;
+  padding-right: 80px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  font-family: 'Ubuntu', sans-serif;
+  margin-left: 25%;
+  font-size: 13px;
+  box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+}
+
+/* Update User */
+
+.mainwrap_update_user {
+background-color:#4a4c65b0;
+width: 400px;
+height: 300px;
+margin: 2em auto;
+border-radius: 1.5em;
+box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+}
+.update_user_btn {
+cursor: pointer;
+border-radius: 5em;
+color: #fff;
+  background: linear-gradient(to right, #424784b0, #5d62b1);
+  border: 0;
+  padding-left: 40px;
+  padding-right: 30px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  font-family: 'Ubuntu', sans-serif;
+  margin-left: 25%;
+  font-size: 13px;
+  box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+}
+
+/* Update Password */
+
+.mainwrap_update_password {
+background-color:#4a4c65b0;
+width: 400px;
+height: 350px;
+margin: 2em auto;
+border-radius: 1.5em;
+box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+}
+.update_password_btn {
+cursor: pointer;
+border-radius: 5em;
+color: #fff;
+  background: linear-gradient(to right, #424784b0, #5d62b1);
+  border: 0;
+  padding-left: 40px;
+  padding-right: 30px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  font-family: 'Ubuntu', sans-serif;
+  margin-left: 25%;
+  font-size: 13px;
+  box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
 }
