@@ -1,29 +1,29 @@
-<h2>Update user</h2>
+<div class="mainwrap_update_user">
+
+<p class="sign" align="center">Update Login</p>
 
 {{! update username, update email }}
 <form method="post" action="/settings/update-user">
     
-  <label>Username
     <input
+      class="un"
       type="text"
       name="username"
       placeholder="Username"
       value="{{user.username}}"
     />
-  </label>
-  <br />
 
-  <label>Email
     <input
-      type="text"
-      name="email"
-      placeholder="Email"
-      value="{{user.email}}"
+    class="un"
+    type="text"
+    name="email"
+    placeholder="Email"
+    value="{{user.email}}"
     />
-  </label>
-  <br />
 
 
-  <button type="submit">Save Your Changes</button>
+  <button class="update_user_btn" type="submit">Save Your Changes</button>
 
 </form>
+</div>
+ds

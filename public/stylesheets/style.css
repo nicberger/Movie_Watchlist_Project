@@ -108,10 +108,7 @@ header{
       }
 
 
-/************* Everything from here is styling for the results page **************/
-
-
-
+/*##########  RESULTS PAGE #############*/
 
 /* SEARCH BAR  */
 .search{
@@ -271,24 +268,9 @@ main{
 
 
 
-/* REGISTER AND LOGIN PAGE */
-.mainwrapregister {
-  background-color:#4a4c65b0;
-  width: 400px;
-  height: 400px;
-  margin: 2em auto;
-  border-radius: 1.5em;
-  box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
-}
+/*########## REGISTER, LOGIN AND USER SETTINGS PAGES ###############*/
 
-.mainwraplogin {
-  background-color:#4a4c65b0;
-  width: 400px;
-  height: 300px;
-  margin: 2em auto;
-  border-radius: 1.5em;
-  box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
-}
+/* General Settings for the forms */
 
 .sign {
   padding-top: 40px;
@@ -315,32 +297,50 @@ main{
   text-align: center;
   margin-bottom: 20px;
   font-family: 'Ubuntu', sans-serif;
-  }
-  
-  .un:focus, .pass:focus {
-    border: 2px solid rgba(0, 0, 0, 0.18) !important;
-  }
-
-.registernowbtn {
-  cursor: pointer;
-    border-radius: 5em;
-    color: #fff;
-    background: linear-gradient(to right, #424784b0, #5d62b1);
-    border: 0;
-    padding-left: 40px;
-    padding-right: 40px;
-    padding-bottom: 10px;
-    padding-top: 10px;
-    font-family: 'Ubuntu', sans-serif;
-    margin-left: 25%;
-    font-size: 13px;
-    box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
 }
 
+.un:focus, .pass:focus {
+  border: 2px solid rgba(0, 0, 0, 0.18) !important;
+}
+
+/* Register Page */
+.mainwrapregister {
+  background-color:#4a4c65b0;
+  width: 400px;
+  height: 400px;
+  margin: 2em auto;
+  border-radius: 1.5em;
+  box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+}
+.registernowbtn {
+  cursor: pointer;
+  border-radius: 5em;
+  color: #fff;
+  background: linear-gradient(to right, #424784b0, #5d62b1);
+  border: 0;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  font-family: 'Ubuntu', sans-serif;
+  margin-left: 25%;
+  font-size: 13px;
+  box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+}
+
+/* Login Page */
+.mainwraplogin {
+  background-color:#4a4c65b0;
+  width: 400px;
+  height: 300px;
+  margin: 2em auto;
+  border-radius: 1.5em;
+  box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+}
 .loginbtn {
   cursor: pointer;
-    border-radius: 5em;
-    color: #fff;
+  border-radius: 5em;
+  color: #fff;
     background: linear-gradient(to right, #424784b0, #5d62b1);
     border: 0;
     padding-left: 80px;
@@ -353,3 +353,54 @@ main{
     box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
 }
 
+/* Update User */
+
+.mainwrap_update_user {
+  background-color:#4a4c65b0;
+  width: 400px;
+  height: 300px;
+  margin: 2em auto;
+  border-radius: 1.5em;
+  box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+}
+.update_user_btn {
+  cursor: pointer;
+  border-radius: 5em;
+  color: #fff;
+    background: linear-gradient(to right, #424784b0, #5d62b1);
+    border: 0;
+    padding-left: 40px;
+    padding-right: 30px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    font-family: 'Ubuntu', sans-serif;
+    margin-left: 25%;
+    font-size: 13px;
+    box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+}
+
+/* Update Password */
+
+.mainwrap_update_password {
+  background-color:#4a4c65b0;
+  width: 400px;
+  height: 350px;
+  margin: 2em auto;
+  border-radius: 1.5em;
+  box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+}
+.update_password_btn {
+  cursor: pointer;
+  border-radius: 5em;
+  color: #fff;
+    background: linear-gradient(to right, #424784b0, #5d62b1);
+    border: 0;
+    padding-left: 40px;
+    padding-right: 30px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    font-family: 'Ubuntu', sans-serif;
+    margin-left: 25%;
+    font-size: 13px;
+    box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+}
