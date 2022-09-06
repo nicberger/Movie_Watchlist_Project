@@ -1,9 +1,6 @@
 const { Router } = require("express");
-
 const isLoggedIn = require("../middleware/isLoggedIn");
-
 const UserModel = require("../models/User.model");
-
 const {
   Types: { ObjectId },
 } = require("mongoose");

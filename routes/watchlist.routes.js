@@ -1,15 +1,24 @@
+const FilmModel = require("../models/Film.model");
+const UserModel = require("../models/User.model");
 const { Router } = require("express");
-// const { isValidObjectId } = require("mongoose");
-// const isLoggedIn = require("../middleware/isLoggedIn.middleware");
-// const WatchlistModel = require("../models/Watchlist.model");
 
 const watchlistRouter = Router();
 
-watchlistRouter.get("/", (req, res) => {
-  //   WatchlistModel.find({}).then((films) => {
-  res.render("user/watchlist");
-  // console.log("Test message",req)
-  //   });
+watchlistRouter.get("/create", (req, res) => {
+  console.log("request", req.query, req.session.user._id);
+  FilmModel.create({
+    user_id: req.session.user._id,
+    movieID: req.query.id,
+    title: req.query.original_title,
+    poster_path: req.query.poster_path,
+  });
+  res.redirect("/watchlist");
+});
+
+watchlistRouter.get("/", async (req, res) => {
+  const allFilms = await FilmModel.find({});
+  console.log(allFilms);
+  res.render("user/watchlist", { allFilms });
 });
 
 module.exports = watchlistRouter;

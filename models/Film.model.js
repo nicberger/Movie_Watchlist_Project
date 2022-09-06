@@ -5,6 +5,6 @@ const filmSchema = new Schema({
   },
 });
 
-const Movie = model("film", filmSchema);
+const Film = model("film", filmSchema);
 
 module.exports = Film;
