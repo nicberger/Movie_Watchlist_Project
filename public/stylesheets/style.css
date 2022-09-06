@@ -353,6 +353,93 @@ main{
     box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
 }
 
+
+/* Account Settings */
+.mainwrap_account_settings {
+  background-color:#4a4c65b0;
+  width: 300px;
+  height: 200px;
+  margin: 2em auto;
+  border-radius: 1.5em;
+  box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+}
+
+.text_testing {
+  color: inherit;
+  text-decoration: none;
+  color: white;
+}
+.text_testing:visited {
+  color: white;
+}
+
+.list_style {
+  list-style-type: none;
+}
+
+.buttons_account_settings {
+  backface-visibility: hidden;
+  background: var(--primary-color);
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Circular,Helvetica,sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: -.01em;
+  line-height: 1.3;
+  padding: 0.5rem 1.25rem;
+  position: relative;
+  text-decoration: none;
+  transform: translateZ(0) scale(1);
+  transition: transform .2s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  margin-bottom: 50px;
+  margin-left: 46px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.buttons_account_settings:disabled {
+  color: #787878;
+  cursor: auto;
+}
+
+.buttons_account_settings:not(:disabled):hover {
+  transform: scale(1.05);
+}
+
+.buttons_account_settings:not(:disabled):hover:active {
+  transform: scale(1.05) translateY(.125rem);
+}
+
+.buttons_account_settings:focus {
+  outline: 0 solid transparent;
+}
+
+.buttons_account_settings:focus:before {
+  border-width: .125rem;
+  content: "";
+  left: calc(-1*.375rem);
+  pointer-events: none;
+  position: absolute;
+  top: calc(-1*.375rem);
+  transition: border-radius;
+  user-select: none;
+}
+
+.buttons_account_settings:focus:not(:focus-visible) {
+  outline: 0 solid transparent;
+}
+
+.buttons_account_settings:not(:disabled):active {
+  transform: translateY(.125rem);
+}
+
+
 /* Update User */
 
 .mainwrap_update_user {
@@ -439,3 +526,10 @@ font-family: 'Ubuntu', sans-serif;
 border-width: 5px;
 border-style: solid;
 }
+
+
+
+
+
+
+
