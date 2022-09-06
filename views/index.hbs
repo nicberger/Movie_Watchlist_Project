@@ -5,6 +5,39 @@
     
 
     {{else}}
-    <h1>Track films you've watched </h1>
-    <h1>Save those you want to see.</h1>
+    <div class="home">
+        <div class="welcome">
+            <div id= "welcome-h1">
+                <h1>Track movies you've watched. </h1>
+                <h1>Save those you want to see.</h1>
+                <h1>Tell your friends what's good. </h1>  
+            </div> 
+            
+            <form action="/auth/login">
+            <button class="button-37" type="submit" role="button">Get started — Now!</button>
+            </form>
+            
+        </div>
+
+    <section id="highligths">
+        <h2>Movie Watchlist let's you...</h2>
+        <div class="highligts">
+            <div class="watching">
+                <img src="/images/eye.png" alt="eye">
+                <p>Keep track of every film you've ever watched.</p>
+            </div>
+            <div class="wish list">
+                <img src="/images/heart.png" alt="eye">
+                <p>Have a list of every film that you wish to watch.</p>
+            </div>
+            
+        </div>
+
+    </section>
+    </div>
+    <div class="tagline">
+
+    </div>
+
+    
 {{/if}}

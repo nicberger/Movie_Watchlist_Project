@@ -51,6 +51,9 @@ app.use("/settings", settingsRouter);
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);
 
+// Make everything inside of public/ available
+app.use(express.static("public"));
+
 module.exports = app;
 
 //test

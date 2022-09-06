@@ -6,11 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>{{appTitle}}</title>
     <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link rel="stylesheet" href="/stylesheets/home.css">
   </head>
 
   <body>
     <header>
     <div class="nav-container">
+      <a href="/">
+      <img class="nav-img" src="/images/moviesWatchlist-logo.png" alt="logo">
+      </a>
          <nav>
            <ul class="nav-links">
              <li>
@@ -36,10 +40,13 @@
                 </li>
               {{/if}}
               </ul>   
+              <nav class="nav-search">
 
               <form action="/api/result" method="GET">
               <input type="text" placeholder="Search for movies" name="search" class="search">
               </form>
+
+              </nav>
           </nav>
     </div>
   </header>
