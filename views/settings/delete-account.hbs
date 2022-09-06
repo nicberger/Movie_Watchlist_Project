@@ -1,0 +1,23 @@
+<div class="mainwrap_delete_user">
+
+<p class="sign" align="center">Delete account</p>
+
+
+<h6 class="warning_delete_user"> ⚠ By deleting your account, you will no longer be able to sign in, your activity will be removed from Watchlist Movie and your username might be claimed by another user!</h6> 
+<form method="post" action="/settings/delete-account">
+    
+    <input
+    class="un"
+    type="password"
+    name="password"
+    placeholder="Type Your Password"
+    />
+
+  <button class="delete_user_btn" type="submit">Delete my account</button>
+
+    {{#if sucessMessage}} 
+         <div>{{sucessMessage}}</div>
+      {{/if}}
+</form>
+
+</div>

@@ -404,3 +404,38 @@ main{
     font-size: 13px;
     box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
 }
+
+/* Delete User Account */
+
+.mainwrap_delete_user {
+  background-color:#4a4c65b0;
+  width: 400px;
+  height: 350px;
+  margin: 2em auto;
+  border-radius: 1.5em;
+  box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+}
+.delete_user_btn {
+  cursor: pointer;
+  border-radius: 5em;
+  color: #fff;
+    background: linear-gradient(to right, #424784b0, #5d62b1);
+    border: 0;
+    padding-left: 40px;
+    padding-right: 30px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    font-family: 'Ubuntu', sans-serif;
+    margin-left: 25%;
+    font-size: 13px;
+    box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+}
+
+.warning_delete_user {
+margin: 30px;
+color: #fff;
+border-color: rgb(184, 7, 7);
+font-family: 'Ubuntu', sans-serif;
+border-width: 5px;
+border-style: solid;
+}

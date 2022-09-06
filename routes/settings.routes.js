@@ -132,4 +132,53 @@ settingsRouter.post("/update-password", isLoggedIn, async (req, res) => {
     res.redirect(`/user/${req.session.user._id}`);
 });
 
+//******* DELETE ACCOUNT **********
+
+settingsRouter.get("/delete-account", isLoggedIn, async (req, res) => {
+    const user = await UserModel.findById(req.session.user._id);
+
+    if (!user) {
+        return res.redirect("/");
+    }
+
+    res.render("settings/delete-account", { user });
+});
+
+settingsRouter.post("/delete-account", isLoggedIn, async (req, res) => {
+    const user = await UserModel.findById(req.session.user._id);
+
+    if (!user) {
+        return res.redirect("/");
+    }
+
+    const { password } = req.body;
+
+    if (!password) {
+        return res.status(400).render("settings/delete-account", {
+            user,
+            errorMessage: "Please provide your password.",
+        });
+    }
+
+    const isSamePassword = bcrypt.compareSync(password, user.password);
+
+    if (!isSamePassword) {
+        return res.status(400).render("settings/delete-account", {
+            user,
+            errorMessage: "Wrong Credentials",
+        });
+    }
+
+    await UserModel.findByIdAndDelete(req.session.user._id);
+
+    req.session.destroy((err) => {
+        if (err) {
+            return res
+                .status(500)
+                .render("auth/logout", { errorMessage: err.message });
+        }
+        res.redirect("/");
+    });
+});
+
 module.exports = settingsRouter;
