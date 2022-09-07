@@ -17,12 +17,12 @@ const userSchema = new Schema(
             type: String,
             required: true,
         },
-        watchlist: [
-            {
-                type: Schema.Types.ObjectId,
-                ref: "film",
-            },
-        ],
+        // watchlist: [
+        //     {
+        //         type: Schema.Types.ObjectId,
+        //         ref: "film",
+        //     },
+        // ],
     },
     {
         // this second object adds extra properties: `createdAt` and `updatedAt`

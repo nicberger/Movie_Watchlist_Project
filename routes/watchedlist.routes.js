@@ -16,7 +16,9 @@ watchedlistRouter.get("/create", (req, res) => {
 });
 
 watchedlistRouter.get("/", async (req, res) => {
-    const allFilms = await WatchedModel.find({});
+    const allFilms = await WatchedModel.find({
+        user_id: req.session.user._id,
+    });
     console.log(allFilms);
     res.render("user/watchedlist", { allFilms });
 });
