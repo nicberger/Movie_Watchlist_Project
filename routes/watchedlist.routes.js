@@ -1,6 +1,7 @@
 const WatchedModel = require("../models/Watched.model");
 const UserModel = require("../models/User.model");
 const { Router } = require("express");
+const isLoggedIn = require("../middleware/isLoggedIn");
 
 const watchedlistRouter = Router();
 
@@ -21,6 +22,13 @@ watchedlistRouter.get("/", async (req, res) => {
     });
     console.log(allFilms);
     res.render("user/watchedlist", { allFilms });
+});
+
+// ######################### DELETE ENTRY ################################
+
+watchedlistRouter.get("/delete", isLoggedIn, async (req, res) => {
+    await WatchedModel.findByIdAndDelete(req.query.id);
+    res.redirect("/watchedlist");
 });
 
 module.exports = watchedlistRouter;

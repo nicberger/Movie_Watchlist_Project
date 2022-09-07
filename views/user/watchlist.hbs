@@ -9,7 +9,11 @@
 {{!-- DELETE BUTTON --}}
 <div class="containerimg">
 <img src="https://image.tmdb.org/t/p/w500{{this.poster_path}}">
-<button class="semi-transparent-remove-button">Remove</button>
+
+<form method="get" action="/watchlist/delete">
+<input type="hidden" value="{{this._id}}" name="id"/>
+<button class="semi-transparent-remove-button" type="submit">Delete</button>
+</form>
 </div> 
 
 {{!-- TITLE MOVIE --}}
