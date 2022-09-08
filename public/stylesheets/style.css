@@ -31,8 +31,9 @@ body{
 
 
 header{
+  color: var(--text-color);
   padding:1rem;
-  display:flex;
+  /* display:flex; */
   justify-content: space-between;
   background-color: var(--secondary-color);
 }
@@ -43,14 +44,14 @@ left: 0;
 bottom: 0;
 width: 100%;
 background-color: var(--secondary-color);
-color: var(--primary-color);
+color: var(--text-color);
 text-align: center;
 }
 
 
 /* Navbar */
 .nav-links a {
-  color: var(--primary-color);
+  color: var(--text-color);
   text-decoration: none;
   margin: 10px;
   
@@ -58,7 +59,7 @@ text-align: center;
 
 .nav-links a:hover {
   text-decoration: none;
-  color: var(--primary-color);
+  color: var(--text-color2);
 }
 
 .nav-links a {
@@ -68,7 +69,7 @@ text-align: center;
 
 .nav-links a:after {
   border-radius: 1em;
-  border-top: .1em solid  var(--primary-color);
+  border-top: .1em solid  var(--text-color2);
   content: "";
   position: absolute;
     right: 100%;
@@ -93,10 +94,11 @@ text-align: center;
 
 nav {
     display: flex;
-    flex-direction: row;
+    /* flex-direction: row; */
     justify-content: space-between;
     align-items: center;
-    padding-bottom: 20px;
+    /* padding-bottom: 20px; */
+    align-items: baseline;
   }
 
     nav img {
@@ -205,11 +207,11 @@ width:100%;
 /* GLOBAL BUTTON STYLING */
 .buttono {
 backface-visibility: hidden;
-background: var(--primary-color);
+background: var(--text-color2);
 border: 0;
 border-radius: .375rem;
 box-sizing: border-box;
-color: #fff;
+color: var(--secondary-color);
 cursor: pointer;
 display: inline-block;
 font-family: Circular,Helvetica,sans-serif;

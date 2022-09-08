@@ -11,8 +11,8 @@
       placeholder="Your Username" 
       value="{{username}}"
       />
-      {{#if usernameError}} 
-         <div>{{usernameError}}</div>
+      {{#if errorMessage}} 
+         <div>{{errorMessage}}</div>
       {{/if}}
    </label>
       <input
@@ -22,8 +22,8 @@
       placeholder="Your Email Address"
       value="{{email}}"
       >
-      {{#if emailError}}
-         <div>{{emailError}}</div>
+      {{#if errorMessage}}
+         <div>{{errorMessage}}</div>
       {{/if}}
 
       <input class="un" type="password" name="password" placeholder="Your Password">
