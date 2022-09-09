@@ -1,0 +1,42 @@
+          <!-- ***** Header Area End ***** -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="page-content">
+          
+           <div class="page-content">
+          <!-- ***** Banner Start ***** -->
+          <div class="main-banner">
+            <div class="row">
+              <div class="col-lg-7">
+            {{#if isLoggedIn}}
+    <div class="header-text">
+    <h4><em>HEllo </em><span class="span-user-name"> {{username}}</span>,</h4>
+<form action="/watchlist">
+<button class="buttono" type="submit" role="button">Head over to your Watchlist</button>
+</form>
+<form action="/watchedlist">
+<button class="buttono" type="submit" role="button">Check out your Favourites</button>
+</form>
+    </div>
+     {{else}}
+                <div class="header-text">
+                  <h4><em>Create</em> your Watchlist</h4>
+                  <h4><em>Track</em> your favourite movies</h4>
+    <div class="home">
+        <div class="welcome">
+            <div id= "welcome-h1">
+            </div>
+            <form action="/auth/signup">
+            <button class="buttono" type="submit" role="button">Get started — Now!</button>
+            </form>
+        </div>
+    </div>
+{{/if}}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- ***** Banner End ***** -->
+          </div>
